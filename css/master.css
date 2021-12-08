@@ -60,9 +60,16 @@ html{
 
 #tim2 {
      background-color: #ffcc00;
+     color:white;
+
 }
 
 #tim3{
      background-color: #40bf80;
      color:white;
+}
+
+.timer:hover{
+     box-shadow:  3px 3px 10px rgba(0,0,0,0.5);
+     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
