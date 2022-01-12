@@ -4,7 +4,6 @@
      <meta charset="utf-8">
      <title>CountDownEsami</title>
 
-     <link rel="stylesheet" href="css/master.css">
      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 </head>
@@ -21,9 +20,13 @@
      </div>
 </body>
 <script>
-     $('#tim1').countdown('2022/01/13', function(event) {
+     function stringToCoundown(stringDay, exam, date, id, aula){
+          if(!aula)
+               aula = '';
+          $(id).countdown(date, function(event) {
           var $this = $(this).html(event.strftime(''
-          + '<div class="day">13 Jan</div>' + '<div class="title">Analisi</div>'
+          + '<div class="day">'+stringDay+'</div>'
+          + '<div class="title">'+exam+'<div class="aula">'+aula+'</div>'+'</div>'
           +'<div class="countdown">'
           + '     <div class="days"><span>%D</span><span>Days</span></div>'
           + '     <div class="hours"><span>%H</span><span>Hours</span></div>'
@@ -32,28 +35,12 @@
           + '</div>'
           ));
      });
-     $('#tim2').countdown('2022/01/18', function(event) {
-          var $this = $(this).html(event.strftime(''
-          + '<div class="day">18 Jan</div>' + '<div class="title">Gal</div>'
-          +'<div class="countdown">'
-          + '     <div class="days"><span>%D</span><span>Days</span></div>'
-          + '     <div class="hours"><span>%H</span><span>Hours</span></div>'
-          + '     <div class="minutes"><span>%M</span><span>Minutes</span></div>'
-          + '     <div class="seconds"><span>%S</span><span>Seconds</span></div>'
-          + '</div>'
-          ));
-     });
-     $('#tim3').countdown('2022/01/26', function(event) {
-          var $this = $(this).html(event.strftime(''
-          + '<div class="day">26 Jan</div>' + '<div class="title">Informatica</div>'
-          +'<div class="countdown">'
-          + '     <div class="days"><span>%D</span><span>Days</span></div>'
-          + '     <div class="hours"><span>%H</span><span>Hours</span></div>'
-          + '     <div class="minutes"><span>%M</span><span>Minutes</span></div>'
-          + '     <div class="seconds"><span>%S</span><span>Seconds</span></div>'
-          + '</div>'
-     ));
-     });
+     }
+     
+     stringToCoundown("13 Jan", "Analisi", "2022/01/13", "#tim1", "T.1.1");
+     stringToCoundown("18 Jan", "Gal", "2022/01/18", "#tim2");
+     stringToCoundown("26 Jan", "Informatica", "2022/01/26", "#tim3");
+
      
 </script>
 <style media="screen">
@@ -100,6 +87,10 @@
           margin: auto;
           font-size: 3em;
           width: 100%;
+     }
+     .timer .title .aula{
+          font-size: 0.7em;
+          display: block;
      }
 
      .countdown {
