@@ -12,8 +12,8 @@
      </div>
 </body>
 <script>
-     function stringToCoundown(stringDay, exam, date, id, aula){
-          $("#container").append('<div class="timer" id = "'+id.slice(1)+'"></div>');
+     function stringToCoundown(stringDay, exam, date, id, aula, bgColor, color){
+          $("#container").append('<div class="timer" id = "'+id.slice(1)+'" style="background-color:'+bgColor+'; color:'+color+';"></div>');
           if(!aula)
                aula = '';
           $(id).countdown(date, function(event) {
@@ -30,9 +30,10 @@
      });
      }
 
-     stringToCoundown("13 Jan", "Analisi", "2022/01/13", "#tim1", "T.1.1");
-     stringToCoundown("18 Jan", "Gal", "2022/01/18", "#tim2");
-     stringToCoundown("26 Jan", "Informatica", "2022/01/26", "#tim3");
+     stringToCoundown("26 Jan", "Informatica", "2022/01/26", "#tim3", "", "#ff5050", "white");
+     stringToCoundown("7 Feb", "Gal", "2022/02/07", "#tim2", "De Donato", "#ffcc00", "white");
+     stringToCoundown("13 Jan", "Analisi", "2022/01/13", "#tim1", "T.1.1", "#40bf80", "white");
+
 
 
 </script>
@@ -99,21 +100,7 @@
           padding: 10px;
      }
 
-     #tim1{
-          background-color: #ff5050;
-          color:white;
-     }
-
-     #tim2 {
-          background-color: #ffcc00;
-          color:white;
-
-     }
-
-     #tim3{
-          background-color: #40bf80;
-          color:white;
-     }
+     
 
      .timer:hover{
           box-shadow:  3px 3px 10px rgba(0,0,0,0.5);
