@@ -2,7 +2,7 @@ function stringToCoundown(stringDay, exam, date, id, aula, bgColor, color, insid
     if(inside){
          container = "#container "+inside;
     } else{
-        container ="#container";
+        container ="#container1";
     }
 
     $(container).append('<div class="timer" id = "'+id.slice(1)+'" style="background-color:'+bgColor+'; color:'+color+';"></div>');

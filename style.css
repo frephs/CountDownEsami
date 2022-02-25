@@ -3,26 +3,15 @@ html {
     font-weight: 100;
     color: black;
     background-color: #e6e6e6;
-    overflow-y: hidden;
 }
 
-body{
-    zoom: 80%;
-}
+
 
 .container{
     display: flex;
-    min-height: 100%;
-    width: 100%;
-    height: 100%;
-    align-items: stretch;
-    height: 98vh;
-}
-
-
-
-.container{
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 
@@ -34,9 +23,8 @@ body{
     padding: 60px;
     border-radius: 15px;
     background: rgba(255,255,255, 0.5);
-    flex-shrink: 1;
     flex: 0 0 1em;
-    margin: 20px;
+    margin: 15px;
     cursor: pointer;
     transition: ease-in-out 200ms;
 }
@@ -69,8 +57,6 @@ body{
     padding: 10px;
 }
 
-
-
 .timer:hover{
     box-shadow:  3px 3px 10px rgba(0,0,0,0.5);
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
@@ -80,7 +66,6 @@ body{
 
 .sub {
     flex-direction: row;
-    flex-wrap: wrap;
     padding: 20px;
     align-items: center;
     align-content: center;
@@ -88,32 +73,28 @@ body{
 }
 
 .sub > .timer {
-    font-size:0.6em;
+    font-size:0.7em;
     padding: 0.8em;
     margin:0.7em;
   
 }
 @media only screen and (max-device-width : 1500px) {
-    .container {
+    .container, .sub {
          flex-direction: column;
+         flex-wrap: wrap;
     }
+    .
 
     .countdown {
          font-size: 2.5em;
     }
     .timer:not(.sub){
          margin: 20px 40px;
-         font-size: 1.6em;
+         font-size: 1.4em;
          padding: 50px 60px;
          font-weight: 500;
-         min-height: 25%;
     }
-    .sub > .timer {
-        font-size:0.9em;
-        padding: 0.9em;
-        margin:0.6em;
-        max-height: 100%;
-    }
+   
     
 
 }
