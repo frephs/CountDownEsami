@@ -28,3 +28,7 @@ function stringToCoundown(stringDay, exam, date, id, aula, bgColor, color, insid
         ));
     });
 }
+
+$('.timer').hover(function(){
+    $(this.id).toggleClass('fullscreen'); 
+});

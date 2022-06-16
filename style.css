@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 200;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  }
+  
+
 html {
     font-family: 'Product Sans';
     font-weight: 100;
@@ -5,13 +13,28 @@ html {
     background-color: #e6e6e6;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+}
 
 
 .container{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: stretch;
+    flex-wrap: wrap;
+
+}
+
+#esami {
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.timer:hover > .title {
+    text-decoration: underline;
+    
 }
 
 
@@ -20,17 +43,20 @@ html {
     flex-direction: column;
     text-align: center;
     justify-content: space-evenly;
-    padding: 60px;
-    border-radius: 15px;
+    padding: 60px 0px;
+    border-radius: 20px;
     background: rgba(255,255,255, 0.5);
-    flex: 0 0 1em;
     margin: 15px;
     cursor: pointer;
     transition: ease-in-out 200ms;
-}
+    }
 
 .timer .day{
     font-size:2em;
+}
+
+.timer:not(.title){
+    font-weight: 100;
 }
 
 .timer .title{
@@ -79,22 +105,32 @@ html {
   
 }
 
-@media only screen and (max-device-width : 1500px) {
-    .container, .sub {
+@media only screen and (max-device-width: 640px) {
+    body{
+        flex-direction: column;
+
+    }
+    
+    .container, .sub{
          flex-direction: column;
          flex-wrap: wrap;
     }
 
-    .countdown {
-         font-size: 2.5em;
-    }
+   
     .timer:not(.sub){
          margin: 20px 40px;
          font-size: 1.4em;
          padding: 50px 60px;
          font-weight: 500;
     }
-   
-    
+    #esami{
+        flex-direction: column;
+        align-items: center;
+            justify-content: space-evenly;
 
+        }
+   .countdown {
+    flex-wrap: nowrap;
+   }
 }
+
