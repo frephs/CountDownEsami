@@ -1,6 +1,7 @@
+@import url('http://fonts.cdnfonts.com/css/product-sans');
+
 html {
-    font-family: 'Product Sans', 'Open Sans', 'Sans Serif';
-    font-weight: 100;
+    font-family: 'Product Sans', sans-serif;
     color: black;
     background-color: #e6e6e6;
 }
