@@ -1,5 +1,10 @@
 @import url('http://fonts.cdnfonts.com/css/product-sans');
 
+@font-face {
+    font-family:"Product Sans" ;
+    src: url("http://fonts.cdnfonts.com/css/product-sans");
+}
+
 html {
     font-family: 'Product Sans', sans-serif;
     color: black;
