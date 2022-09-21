@@ -1,5 +1,8 @@
-function stringToCoundown(stringDay, exam, date, id, aula, bgColor, color, inside){
-    if(inside){
+function stringToCoundown(stringDay, exam, date, id, aula, bgColor, color, inside, prox){
+    if (prox){
+        container = "#prox";
+    }
+    else if(inside){
         if(!$(inside)[0]){
             container = "#parziali"
             $(container).append('<div id="'+inside.slice(1)+'"class="sub timer"></div>');
