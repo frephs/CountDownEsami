@@ -1,63 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
 <head>
+     <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta charset="utf-8">
+     <link rel="stylesheet" href="style.css">
      <title>CountDownEsami</title>
-</head>     
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
-
+     <script src="exams.js"></script>
+</head>
 
 <body>
-     <h2>Parziali</h2>
-     <div class="container" id="parziali">
-     </div>
-     <h2>Esami</h2>
-     <div class="container" id="esami">
-     </div>
-     <h2>Prossimi appelli</h2>
-     <div class="container" id="prox" style=" filter:blur(3px)">
+
+     <div id="exam-container">
      </div>
 
-     <script src="script.js"></script>
-     <script>
-          colors = ["#ff5050", "#ff8c00", "#ffcc00", "#40bf80"]
-          // stringToCoundown("6 Jun", "FCI", "2022/06/06", "#FCI1", "", colors[0], "white", "#hey");
-          // stringToCoundown("6 Jun", "FCI", "2022/06/06", "#FCI2", "", colors[1], "white", "#hey");
-          // stringToCoundown("6 Jun", "FCI", "2022/06/06", "#FCI3", "", colors[2], "white", "#hey");
-          // stringToCoundown("6 Jun", "FCI", "2022/06/06", "#FCI4", "", colors[3], "white", "#hey");
-          //stringToCoundown("18 Jun", "Elettrotecnica", "2022/06/18", "#elet1", "", colors[2], "white");
-          //stringToCoundown("25 Jul", "FCI", "2022/07/25", "#FCI", "", colors[0], "white");
-          //stringToCoundown("5 Sept", "Elettrotecnica", "2022/09/05", "#elet2", "", colors[0], "white");
-          //stringToCoundown("5 Sept", "Elettrotecnica", "2022/09/05", "#elet2", "", colors[0], "white");
-          stringToCoundown("4 Nov", "Acso I", "2022/11/04", "#acso1", "", colors[0], "white", "#acso");
-          stringToCoundown("11 Gen", "Acso II", "2023/01/11", "#acso2", "", colors[1], "white", "#acso");
-          stringToCoundown("8 Feb", "Acso III", "2023/02/08", "#acso3", "", colors[2], "white", "#acso");
 
-
-          stringToCoundown("7 Nov", "Misure I ", "2022/11/07", "#misure1", "", colors[1], "white", "#misure");
-          stringToCoundown("13 Jan", "Misure II ", "2023/01/13", "#misure2", "", colors[2], "white", "#misure");
-          stringToCoundown("1 Feb", "Misure III ", "2023/02/01", "#misure3", "", colors[3], "white", "#misure");
-          
-          stringToCoundown("19 Jan", "Logica e Algebra", "2023/01/19", "#lea1", "", colors[1], "white");
-          stringToCoundown("30 Jan", "Analisi II", "2023/01/30", "#am21", "", colors[0], "white");
-          
-          
-          stringToCoundown("6 Feb", "Logica e Algebra", "2023/02/06", "#lea2", "", colors[3], "white", false, true);
-          stringToCoundown("17 Feb", "Analisi II", "2023/02/17", "#am22", "", colors[3], "white", false, true);
-
-
-
-          
-          
-          
-     </script>
-     <link rel="stylesheet" type="text/css" href="style.css">
-     
 </body>
+<script>
+
+     const examEvents = [
+          new ExamEvent(new Date(2023, 5, 16, 8, 0), "FDA", "No room yet", 10, "#fc4e4e", false, NaN, NaN, false),
+          new ExamEvent(new Date(2023, 5, 30, 8, 0), "FDA", "No room yet", 10, "#fc4e4e", false, NaN, NaN, true),
+
+          new ExamEvent(new Date(2023, 3, 19, 8, 0), "PSI", "No room yet", 10, "#f4b802", true, 0, 1),
+          new ExamEvent(new Date(2023, 5, 23, 8, 0), "PSI", "No room yet", 10, "#f4b802", true, 0, 2),
+          new ExamEvent(new Date(2023, 6, 14, 8, 0), "PSI", "No room yet", 10, "#f4b802", false, NaN, NaN, true),
+
+          new ExamEvent(new Date(2023, 5, 8, 8, 0), "AMII", "No room yet", 10, "#46a045", false, NaN, NaN, false),
+          new ExamEvent(new Date(2023, 6, 5, 8, 0), "AMII", "No room yet", 10, "#46a045", false, NaN, NaN, true),
+
+          new ExamEvent(new Date(2023, 3, 21, 8, 0), "API", "No room yet", 10, "#207ffc", true, 1, 1),
+          new ExamEvent(new Date(2023, 5, 19, 8, 0), "API", "No room yet", 10, "#207ffc", true, 1, 2),
+          new ExamEvent(new Date(2023, 6, 7, 8, 0), "API", "No room yet", 10, "#207ffc", false, NaN, NaN, true),
+
+          new ExamEvent(new Date(2023, 5, 29, 8, 0), "ACSO", "No room yet", 10, "#9238af", false, NaN, NaN, false),
+          new ExamEvent(new Date(2023, 6, 17, 8, 0), "ACSO", "No room yet", 10, "#9238af", false, NaN, NaN, true),
+
+
+     ];
+
+     examEvents.forEach(exam => {
+          if (exam.isPartial == true && exam.partialNumber > 1) {
+               container = document.querySelectorAll('.partial-container')[exam.partialId]
+               console.log(container)
+          }
+          else
+               container = document.querySelectorAll("#exam-container")[0]
+          container.innerHTML += exam.getHTML()
+     });
+     setInterval(updateCountdowns, 1000);
+</script>
 
 </html>
-
-
