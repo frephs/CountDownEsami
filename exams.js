@@ -16,7 +16,7 @@ class ExamEvent {
       let diff = this.date - now;
   
       if (diff < 0) {
-        return "<div>Exam has already passed!</div>";
+        return "";
       }
   
       let days = Math.floor(diff / (1000 * 60 * 60 * 24)).toString();
@@ -35,7 +35,7 @@ class ExamEvent {
   
     getHTML() {
       let opacity = 1
-      if (this.obfuscate == true) {
+      if (this.obfuscate == true || this.date - new Date() < 0) {
         opacity = 0.5
       }
       let exam_html = `<div class="exam" style="background-color: ${this.color}; opacity: ${opacity}">
