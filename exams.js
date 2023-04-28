@@ -42,6 +42,7 @@ class ExamEvent {
         <div class="exam-title">${this.subject}</div>
         <div class="exam-date">${this.date.toLocaleDateString('it-IT', { weekday: "long", month: "short", day: "numeric", year: "numeric", })}</div>
         <div class="exam-room">${this.room}</div>
+        <div class="exam-cfu">${this.cfu} CFU</div>
         <div class="exam-countdown">${this.getCountdown()}</div>
       </div>
       `;
